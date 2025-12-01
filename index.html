@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyScroll</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__content">
+      <div>
+        <p class="eyebrow">No more doomscrolling</p>
+        <h1>Turn reels into <span class="highlight">study reps</span></h1>
+        <p class="lede">
+          StudyScroll is a TikTok-style feed for rapid-fire practice. Create subjects,
+          drop in your notes, and swipe through community-powered multiple-choice questions.
+        </p>
+        <div class="hero__actions">
+          <button id="startPracticing" class="btn primary">Start practicing</button>
+          <button id="addQuestionLink" class="btn ghost">Add a question</button>
+        </div>
+      </div>
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__value" id="subjectCount">0</span>
+          <span class="stat__label">subjects</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value" id="questionCount">0</span>
+          <span class="stat__label">questions</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value" id="savedCount">0</span>
+          <span class="stat__label">saved for review</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel subjects" aria-label="Subjects and notes">
+      <div class="panel__header">
+        <h2>Subjects</h2>
+        <button class="btn tiny" id="openSubjectForm">+ New</button>
+      </div>
+      <ul id="subjectList" class="subject-list"></ul>
+      <div class="notes" id="notesList"></div>
+    </section>
+
+    <section class="panel feed" aria-label="Interactive study feed">
+      <div class="feed__badge">For you</div>
+      <div id="feedCard" class="feed-card">
+        <div class="feed-card__header">
+          <div>
+            <p class="subject-pill" id="feedSubject">Subject</p>
+            <h3 id="feedPrompt">Loading question…</h3>
+            <p class="note" id="feedNote"></p>
+          </div>
+          <div class="actions">
+            <button class="icon" id="saveQuestion" aria-label="Save question">★</button>
+            <button class="icon" id="shuffle" aria-label="Next question">↻</button>
+          </div>
+        </div>
+        <div id="choiceList" class="choices"></div>
+        <div class="feedback" id="feedback"></div>
+        <div class="explanation" id="explanation"></div>
+        <div class="feed__footer">
+          <button class="btn secondary" id="showExplanation">Show explanation</button>
+          <button class="btn primary" id="nextQuestion">Next up</button>
+        </div>
+      </div>
+      <div class="saved-preview">
+        <div class="panel__header">
+          <h4>Saved for later</h4>
+        </div>
+        <ul id="savedList" class="saved-list"></ul>
+      </div>
+    </section>
+
+    <section class="panel forms" aria-label="Create and upload">
+      <div class="form-card">
+        <h2>Create a subject</h2>
+        <form id="subjectForm" class="stacked">
+          <label>
+            Subject name
+            <input type="text" id="subjectName" required placeholder="e.g., Cell Biology" />
+          </label>
+          <label>
+            Tagline (optional)
+            <input type="text" id="subjectTagline" placeholder="Short description" />
+          </label>
+          <button class="btn primary" type="submit">Create subject</button>
+        </form>
+      </div>
+
+      <div class="form-card">
+        <h2>Upload notes</h2>
+        <form id="noteForm" class="stacked">
+          <label>
+            Subject
+            <select id="noteSubject"></select>
+          </label>
+          <label>
+            Paste or upload
+            <textarea id="noteContent" rows="3" placeholder="Key takeaways, lecture bullets…"></textarea>
+          </label>
+          <label class="file">
+            <input type="file" id="noteFile" accept="text/plain" />
+            <span>Or drop a .txt file</span>
+          </label>
+          <button class="btn secondary" type="submit">Attach notes</button>
+        </form>
+      </div>
+
+      <div class="form-card" id="questionFormCard">
+        <h2>Contribute a question</h2>
+        <form id="questionForm" class="stacked">
+          <label>
+            Subject
+            <select id="questionSubject"></select>
+          </label>
+          <label>
+            Prompt
+            <textarea id="questionPrompt" rows="2" required placeholder="What does the mitochondria do?"></textarea>
+          </label>
+          <label>
+            Choices (one per line)
+            <textarea id="questionChoices" rows="4" required placeholder="Produce energy\nStore DNA\nExport proteins"></textarea>
+          </label>
+          <label>
+            Correct answer (line number)
+            <input type="number" id="correctIndex" min="1" value="1" required />
+          </label>
+          <label>
+            Explanation (optional)
+            <textarea id="questionExplanation" rows="2"></textarea>
+          </label>
+          <button class="btn primary" type="submit">Publish question</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built to replace doomscrolling with deep practice. Keep tapping, keep learning.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
