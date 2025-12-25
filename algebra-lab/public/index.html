@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Algebra Lab — AI Explanations</title>
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- AdSense (paste your real script later after approval)
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX"
+    crossorigin="anonymous"></script>
+  -->
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Algebra Lab</div>
+    <nav class="nav">
+      <a href="#solve">Solver</a>
+      <a href="#practice">Practice</a>
+      <a href="#traps">Wrong Answers</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Learn Algebra by defeating the traps.</h1>
+      <p>
+        Type any algebra problem. Get a clean final answer, step-by-step reasoning, and the most common wrong answers.
+      </p>
+      <div class="pillrow">
+        <span class="pill">Linear equations</span>
+        <span class="pill">Systems</span>
+        <span class="pill">Polynomials</span>
+        <span class="pill">Quadratics</span>
+        <span class="pill">Functions</span>
+      </div>
+    </section>
+
+    <!-- Ad slot placeholder -->
+    <section class="adbox">
+      <div class="adlabel">Ad</div>
+      <div class="adplaceholder">AdSense slot (enable after approval)</div>
+    </section>
+
+    <section id="solve" class="card">
+      <h2>AI Algebra Solver</h2>
+      <p class="muted">Paste a problem. Example: <code>Solve 2(x-3)=14</code> or <code>Factor x^2-5x+6</code></p>
+
+      <textarea id="problem" rows="4" placeholder="Type your problem here..."></textarea>
+
+      <div class="row">
+        <input id="context" placeholder="Optional: what part confuses you?" />
+        <button id="solveBtn">Explain</button>
+      </div>
+
+      <pre id="solveOut" class="out"></pre>
+    </section>
+
+    <section id="practice" class="card">
+      <h2>Practice Generator</h2>
+      <div class="grid2">
+        <div>
+          <label>Topic</label>
+          <input id="topic" value="Solving linear equations" />
+        </div>
+        <div>
+          <label>Difficulty (1-5)</label>
+          <input id="difficulty" type="number" min="1" max="5" value="2" />
+        </div>
+        <div>
+          <label>Number (1-10)</label>
+          <input id="count" type="number" min="1" max="10" value="5" />
+        </div>
+        <div class="alignend">
+          <button id="practiceBtn">Generate</button>
+        </div>
+      </div>
+
+      <div id="practiceOut" class="qwrap"></div>
+    </section>
+
+    <section id="traps" class="card">
+      <h2>Wrong Answer Library</h2>
+      <p class="muted">This is your “nobody does this” feature: learn how test writers bait mistakes.</p>
+
+      <div class="grid2">
+        <div>
+          <label>Topic</label>
+          <input id="trapTopic" value="Quadratic equations" />
+        </div>
+        <div>
+          <label>Skill</label>
+          <input id="trapSkill" value="Checking extraneous solutions" />
+        </div>
+        <div class="alignend">
+          <button id="trapBtn">Generate traps</button>
+        </div>
+      </div>
+
+      <div id="trapOut" class="trapwrap"></div>
+    </section>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> Algebra Lab</div>
+      <div class="muted">Built for web. Mobile app later.</div>
+    </footer>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
